@@ -1,47 +1,24 @@
-import groovy.json.JsonSlurperClassic
-def jsonParse(def json) {
-    new groovy.json.JsonSlurperClassic().parseText(json)
-}
 pipeline {
     agent any
     stages {
-        stage("Paso 1: Compliar"){
+        stage('STAGE TEST') {
             steps {
-                script {
-                sh "echo 'Compile Code!'"
-                // Run Maven on a Unix agent.
-                sh "./mvnw clean compile -e"
+                script{
+                   env.STAGE='STAGE TEST'
+                   env.channel='C04BPL2A5E3'
+                   
+                   sh 'echo "Testins stage && Slack"'
+                   sh 'ssh root@192.168.1.1' 
                 }
             }
-        }
-        stage("Paso 2: Testear"){
-            steps {
-                script {
-                sh "echo 'Test Code!'"
-                // Run Maven on a Unix agent.
-                sh "./mvnw clean test -e"
-                }
-            }
-        }
-        stage("Paso 3: Build .Jar"){
-            steps {
-                script {
-                sh "echo 'Build .Jar!'"
-                // Run Maven on a Unix agent.
-                sh "./mvnw clean package -e"
-                }
-            }
-        }
-    }
-    post {
-        always {
-            sh "echo 'fase always executed post'"
-        }
-        success {
-            sh "echo 'fase success'"
-        }
-        failure {
-            sh "echo 'fase failure'"
+			post{
+				success{
+					slackSend color: 'good', channel: "${env.channel}", message: "[Fabian Castillo] ${JOB_NAME} Ejecucion Exitosa.", teamDomain: 'D044QHDN0NB', tokenCredentialId: 'token-slack'
+				}
+				failure{
+					slackSend color: 'danger',channel: "${env.channel}", message: "[Fabian Castillo] ${JOB_NAME} Ejecucion fallida en stage [${env.STAGE}]", teamDomain: 'D044QHDN0NB', tokenCredentialId: 'token-slack'
+				}
+			}
         }
     }
 }
