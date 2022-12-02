@@ -23,10 +23,10 @@ pipeline {
             steps {
                 script{
                     sh "echo 'Análisis Estático!'"
-                        withSonarQubeEnv('sonarqube') {
+                        withSonarQubeEnv('token-pipeline') {
                             sh "echo 'Calling sonar by ID!'"
                             // Run Maven on a Unix agent to execute Sonar.
-                            sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=ejemplo-maven-full-stages -Dsonar.projectName=cejemplo-maven-full-stages -Dsonar.java.binaries=build'
+                            sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
                         }
                         
                 }
