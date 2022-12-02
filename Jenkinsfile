@@ -61,7 +61,7 @@ pipeline {
         //    stage("Paso 5: Subir Artefacto a Nexus"){
         //     steps {
         //         script{
-        //             nexusPublisher nexusInstanceId: 'nexusjenkins',
+        //             nexusPublisher nexusInstanceId: 'nexus-jenkins',
         //                 nexusRepositoryId: 'maven-nexus',
         //                 packages: [
         //                     [$class: 'MavenPackage',
