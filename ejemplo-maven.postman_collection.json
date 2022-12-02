@@ -58,8 +58,9 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(2000);",
+							"    pm.expect(pm.response).to.have.code(200);",
 							"});",
+							"",
 							"pm.test(\"Mensaje == ok\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.mensaje).to.eql(\"ok\");",
@@ -72,13 +73,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
