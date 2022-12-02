@@ -19,19 +19,19 @@ pipeline {
             }
         }
 
-        stage("Paso 2: Sonar - Análisis Estático"){
-            steps {
-                script{
-                    sh "echo 'Análisis Estático!'"
-                    sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
-                        // withSonarQubeEnv('sonarqube') {
-                        //     sh "echo 'Calling sonar by ID!'"
-                        //     // Run Maven on a Unix agent to execute Sonar.
-                        //     sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
-                        // }  
-                }
-            }
-        }
+        // stage("Paso 2: Sonar - Análisis Estático"){
+        //     steps {
+        //         script{
+        //             sh "echo 'Análisis Estático!'"
+        //             sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
+        //                 // withSonarQubeEnv('sonarqube') {
+        //                 //     sh "echo 'Calling sonar by ID!'"
+        //                 //     // Run Maven on a Unix agent to execute Sonar.
+        //                 //     sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
+        //                 // }  
+        //         }
+        //     }
+        // }
         
         stage("Paso 3: Curl Springboot maven sleep 20"){
             steps {
