@@ -23,12 +23,12 @@ pipeline {
             steps {
                 script{
                     sh "echo 'Análisis Estático!'"
-                        withSonarQubeEnv('sonarqube') {
-                            sh "echo 'Calling sonar by ID!'"
-                            // Run Maven on a Unix agent to execute Sonar.
-                            sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
-                        }
-                        
+                    sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
+                        // withSonarQubeEnv('sonarqube') {
+                        //     sh "echo 'Calling sonar by ID!'"
+                        //     // Run Maven on a Unix agent to execute Sonar.
+                        //     sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=Ejemplo-maven-ceres-sonarqebe" -Dsonar.java.binaries=build'
+                        // }  
                 }
             }
         }
