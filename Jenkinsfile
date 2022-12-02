@@ -6,8 +6,7 @@ def jsonParse(def json) {
 pipeline {
     agent any
     environment {
-        channel='C04BPL2A5E3'
-        NEXUS_PASSWORD     = credentials('id-llamador')
+        channel='D044QHDN0NB'
     }
     stages {
      
