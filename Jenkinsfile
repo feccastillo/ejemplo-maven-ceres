@@ -56,8 +56,8 @@ pipeline {
            stage("Paso 5: Subir Artefacto a Nexus"){
             steps {
                 script{
-                    nexusPublisher nexusInstanceId: 'nexus',
-                        nexusRepositoryId: 'maven-usach-ceres',
+                    nexusPublisher nexusInstanceId: 'nexusjenkins',
+                        nexusRepositoryId: 'maven-nexus',
                         packages: [
                             [$class: 'MavenPackage',
                                 mavenAssetList: [
@@ -79,8 +79,8 @@ pipeline {
         }
         stage("Paso 6: Descargar Nexus"){
             steps {
-                script{
-                    sh ' curl -X GET -u admin:$NEXUS_PASSWORD "http://nexus:8081/repository/maven-usach-ceres/com/devopsusach2020/DevOpsUsach2020/0.0.1/DevOpsUsach2020-0.0.1.jar" -O'
+                withCredentials([usernamePassword(credentialsId: 'nexus-jenkins', passwordVariable: 'NXS_PASSWORD', usernameVariable: 'NXS_USERNAME')]) {
+                    sh ' curl -X GET -u $NXS_USERNAME:$NXS_PASSWORD "http://nexus:8081/repository/maven-usach-ceres/com/devopsusach2020/DevOpsUsach2020/0.0.1/DevOpsUsach2020-0.0.1.jar" -O'
                 }
             }
         }
