@@ -13,12 +13,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is 800\", function () {",
+							"    pm.response.to.have.status(800);",
 							"});",
 							"",
 							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -57,8 +57,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.expect(pm.response).to.have.code(200);",
+							"pm.test(\"Status code is 800\", function () {",
+							"    pm.response.to.have.status(800);",
 							"});",
 							"",
 							"pm.test(\"Mensaje == ok\", function () {",
@@ -102,12 +102,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is 800\", function () {",
+							"    pm.response.to.have.status(800);",
 							"});",
 							"",
 							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -152,12 +152,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is 800\", function () {",
+							"    pm.response.to.have.status(800);",
 							"});",
 							"",
 							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);",
 							"});"
 						],
 						"type": "text/javascript"
